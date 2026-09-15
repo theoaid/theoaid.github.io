@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theophilus Aidoo</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+background:#fafafa;
+color:#222;
+line-height:1.7;
+}
+
+/* ---------- Header ---------- */
+
+header{
+position:sticky;
+top:0;
+background:rgba(255,255,255,.95);
+backdrop-filter:blur(10px);
+border-bottom:1px solid #e5e5e5;
+z-index:1000;
+}
+
+.header-container{
+max-width:1100px;
+margin:auto;
+padding:15px 25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.brand img{
+width:70px;
+height:70px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.brand h1{
+font-size:1.5rem;
+}
+
+.brand p{
+font-size:.9rem;
+color:#666;
+}
+
+nav{
+display:flex;
+gap:22px;
+flex-wrap:wrap;
+}
+
+nav a{
+text-decoration:none;
+color:#444;
+font-weight:500;
+transition:.2s;
+}
+
+nav a:hover{
+color:#0066cc;
+}
+
+/* ---------- Hero ---------- */
+
+.hero{
+max-width:1100px;
+margin:auto;
+padding:70px 25px 50px;
+display:grid;
+grid-template-columns:1.4fr .9fr;
+gap:50px;
+align-items:center;
+}
+
+.hero h2{
+font-size:2.4rem;
+line-height:1.2;
+margin-bottom:18px;
+}
+
+.hero p{
+font-size:1.05rem;
+color:#555;
+margin-bottom:25px;
+}
+
+.badges{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:25px;
+}
+
+.badge{
+padding:8px 14px;
+background:#eef5ff;
+color:#0066cc;
+border-radius:999px;
+font-size:.9rem;
+}
+
+.buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:12px 22px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+}
+
+.primary{
+background:#0066cc;
+color:white;
+}
+
+.secondary{
+border:1px solid #ddd;
+color:#333;
+background:white;
+}
+
+.hero img{
+width:100%;
+border-radius:18px;
+}
+
+/* ---------- Sections ---------- */
+
+section{
+max-width:900px;
+margin:auto;
+padding:70px 25px;
+}
+
+h3.section-title{
+font-size:1.8rem;
+margin-bottom:30px;
+position:relative;
+}
+
+h3.section-title::after{
+content:"";
+display:block;
+width:60px;
+height:4px;
+background:#0066cc;
+margin-top:10px;
+border-radius:3px;
+}
+
+/* ---------- Publications ---------- */
+
+.pub-card{
+background:white;
+border:1px solid #e6e6e6;
+border-radius:14px;
+padding:24px;
+margin-bottom:22px;
+transition:.2s;
+}
+
+.pub-card:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+
+.pub-title{
+font-size:1.15rem;
+font-weight:700;
+margin-bottom:6px;
+}
+
+.pub-meta{
+color:#666;
+font-size:.95rem;
+margin-bottom:14px;
+}
+
+.links{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:15px;
+}
+
+.link-btn{
+padding:7px 14px;
+background:#f3f3f3;
+border-radius:8px;
+text-decoration:none;
+color:#333;
+font-size:.9rem;
+}
+
+/* ---------- Blog ---------- */
+
+.blog-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:22px;
+}
+
+.blog-card{
+background:white;
+border-radius:16px;
+overflow:hidden;
+border:1px solid #e6e6e6;
+transition:.25s;
+}
+
+.blog-card:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 25px rgba(0,0,0,.07);
+}
+
+.blog-card img{
+width:100%;
+height:170px;
+object-fit:cover;
+}
+
+.blog-content{
+padding:20px;
+}
+
+.blog-content h4{
+margin-bottom:10px;
+}
+
+.blog-content p{
+color:#666;
+font-size:.95rem;
+margin-bottom:15px;
+}
+
+/* ---------- Contact ---------- */
+
+.contact-links{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+margin-top:20px;
+}
+
+.contact-links a{
+text-decoration:none;
+color:#0066cc;
+}
+
+footer{
+text-align:center;
+padding:35px;
+color:#777;
+border-top:1px solid #eee;
+margin-top:50px;
+}
+
+.reveal-button{
+background:none;
+border:none;
+color:#0066cc;
+cursor:pointer;
+text-decoration:underline;
+}
+
+@media(max-width:800px){
+
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.buttons,.badges{
+justify-content:center;
+}
+
+.header-container{
+justify-content:center;
+}
+
+nav{
+justify-content:center;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="header-container">
+
+<div class="brand">
+<!-- <img src="images/theo.png" alt="Theophilus Aidoo"> -->
+<div>
+<h1>Theophilus Aidoo</h1>
+<p>PhD Candidate · University of Saarland · I2SC</p>
+</div>
+</div>
+
+<nav>
+<a href="#research">Research</a>
+<a href="#publications">Publications</a>
+<a href="#blog">Blog</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</div>
+</header>
+
+<!-- Hero -->
+
+<div class="hero">
+
+<div>
+
+<!-- <h2>Using satellite imagery and AI to understand society.</h2> -->
+
+<p>
+I'm a PhD candidate studying under the supervision of Prof. Dr. Ingmar Weber, at the Chair of Societal Computing, University of Saarland. 
+My work focuses on use of computer vision, to study human mobility from satellite imagery.
+</p>
+
+<div class="badges">
+<span class="badge">Computer Vision</span>
+<span class="badge">Remote Sensing</span>
+<span class="badge">Mobility</span>
+<span class="badge">Societal Computing</span>
+</div>
+
+<div class="buttons">
+<a class="btn primary" href="#publications">View Publications</a>
+<a class="btn secondary" href="data/cv.pdf">Download CV</a>
+</div>
+
+</div>
+
+<div>
+<img src="images/theo.png" alt="Theophilus Aidoo">
+</div>
+
+</div>
+
+<!-- Research -->
+
+<section id="research">
+
+<h3 class="section-title">Research</h3>
+
+<p>
+I develop machine learning methods for analysing satellite imagery, with applications in mobility analysis, human displacement, and public health. My recent work explores weakly supervised learning for parking lot occupancy estimation.
+</p>
+
+</section>
+
+<!-- Publications -->
+
+<section id="publications">
+
+<h3 class="section-title">Publications</h3>
+
+<div class="pub-card">
+
+<div class="pub-title">
+A Weak Supervision Learning Approach Towards an Equitable Mobility Estimation
+</div>
+
+<div class="pub-meta">
+Representation Learning · Remote Sensing · Mobility
+</div>
+
+<p>
+A weak supervision framework for estimating parking lot occupancy from 3 m satellite imagery using weekend-derived supervision.
+</p>
+
+<div class="links">
+<a class="link-btn" href="https://github.com/Societal-Computing/equitable_mobility_estimation">Code</a>
+<a class="link-btn" href="https://workshop-proceedings.icwsm.org/pdf/2025_04.pdf">PDF</a>
+</div>
+
+</div>
+
+<div class="pub-card">
+
+<div class="pub-title">
+LLMRS: Unlocking potentials of LLM-based recommender systems for software purchase
+</div>
+
+<div class="pub-meta">
+Large Language Models · Recommender Systems
+</div>
+
+<p>
+Zero-shot recommendation using product reviews with large language models.
+</p>
+
+<div class="links">
+<a class="link-btn" href="https://github.com/igunduz/LLMRS">Code</a>
+<a class="link-btn" href="https://arxiv.org/pdf/2401.06676">PDF</a>
+</div>
+
+</div>
+
+<div class="pub-card">
+
+<div class="pub-title">
+Social capital mediates knowledge gaps in informing sexual and reproductive health behaviours across Africa
+</div>
+
+<div class="pub-meta">
+Computational Social Science · Africa
+</div>
+
+<p>
+Examining how social connectedness influences reproductive health knowledge across 495 African regions.
+</p>
+
+<div class="links">
+<a class="link-btn" href="https://github.com/Societal-Computing/health_inequalities">Code</a>
+<a class="link-btn" href="https://www.sciencedirect.com/science/article/pii/S0277953624006129">PDF</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- Blog -->
+
+<section id="blog">
+
+<h3 class="section-title">Blog</h3>
+
+<div class="blog-grid">
+
+<div class="blog-card">
+  <!-- <img src="images/beyond-rgb.png" alt="AI generated image"> -->
+  <div class="blog-content">
+    <h4>Beyond RGB: What Satellite Imagery Really Contains</h4>
+    <p>What else can we do with satelite imagery that we cannot do with images captured from traditional cameras?</p>
+    <a href="https://updates.i2sc.net/2026/04/blog-beyond-rgb-what-satellite-imagery.html">Read blog →</a>
+  </div>
+</div>
+
+<div class="blog-card">
+  <!-- <img src="images/blog2.jpg" alt="Blog 2"> -->
+  <div class="blog-content">
+    <h4>A Simple AI-Powered Workflow for Literature Review</h4>
+    <p>Doing a literature review can be quite painful, I think many students can relate. Over time, I have learned a few things that I would like to share here.</p>
+    <a href="https://updates.i2sc.net/2026/01/a-simple-ai-powered-workflow-for.html">Read blog →</a>
+  </div>
+</div>
+
+<div class="blog-card">
+  <!-- <img src="images/blog3.jpg" alt="Blog 3"> -->
+  <div class="blog-content">
+    <h4>Design Thinking for Research: Borrowing Human-Centered Principles to Enhance Your Pipeline</h4>
+    <p>How can we apply design thinking principles to improve our research processes and outcomes?</p>
+    <a href="https://updates.i2sc.net/2026/02/design-thinking-for-research.html">Read blog →</a>
+  </div>
+</div>
+
+<div class="blog-card">
+  <!-- <img src="images/blog4.jpg" alt="Blog 4"> -->
+  <div class="blog-content">
+    <h4>Double Delight in Geneva: AI for Social Good & Crisis Computing</h4>
+    <p>Attendance of AI for Social Good and Crisis Computing workshop in Geneva.</p>
+    <a href="https://updates.i2sc.net/2025/07/double-delight-in-geneva-ai-for-social.html">Read blog →</a>
+  </div>
+</div>
+
+</div>
+
+</section>
+
+<!-- Contact -->
+
+<section id="contact">
+
+<h3 class="section-title">Contact</h3>
+
+<p>
+I'm always interested in discussing research collaborations, remote sensing, and AI applications.
+</p>
+
+<p style="margin-top:20px;">
+Email:
+<button class="reveal-button"
+onclick="this.nextElementSibling.style.display='inline';this.style.display='none';">
+Reveal email
+</button>
+
+<span style="display:none;">taidoo@cs.uni-saarland.de</span>
+</p>
+
+<div class="contact-links">
+<a href="https://github.com/theoaid">GitHub</a>
+<a href="https://www.linkedin.com/in/theophilus-aidoo-b31319158/">LinkedIn</a>
+<a href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=r4PcwSgAAAAJ">Google Scholar</a>
+<a href="https://orcid.org/0009-0001-0197-0194">ORCID</a>
+</div>
+
+</section>
+
+<footer>
+© 2026 Theophilus Aidoo
+</footer>
+
+</body>
+</html>
